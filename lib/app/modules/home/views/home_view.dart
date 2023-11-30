@@ -14,55 +14,102 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          children: [
-            const Text(
-              '版本号需要与patch号相同',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w400,
-                color: Colors.red,
-              ),
-            ),
-            const Text(
-              'iOS 测试',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
-                color: Colors.green,
-              ),
-            ),
-            const Text(
-              'test 单独推安卓、iOS \n iOS2',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
-                color: Colors.blue,
-              ),
-            ),
-            Obx(() => Text(
-                  controller.versionInfo.value,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.orange,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Column(
+            children: [
+              // const Text(
+              //   '版本号需要与patch号相同',
+              //   style: TextStyle(
+              //     fontSize: 24,
+              //     fontWeight: FontWeight.w400,
+              //     color: Colors.red,
+              //   ),
+              // ),
+              // const Text(
+              //   'iOS 测试',
+              //   style: TextStyle(
+              //     fontSize: 24,
+              //     fontWeight: FontWeight.w600,
+              //     color: Colors.green,
+              //   ),
+              // ),
+              // const Text(
+              //   'test 单独推安卓、iOS \n iOS2 \n Android',
+              //   style: TextStyle(
+              //     fontSize: 24,
+              //     fontWeight: FontWeight.w600,
+              //     color: Colors.blue,
+              //   ),
+              // ),
+              Obx(() => Text(
+                    controller.versionInfo.value,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.orange,
+                    ),
+                  )),
+              const SizedBox(height: 20),
+              Obx(() => Text(
+                    controller.curPatchNum.value,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.orange,
+                    ),
+                  )),
+              const SizedBox(height: 20),
+
+              Obx(() => Text(
+                    controller.updateAvailable.value,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.orange,
+                    ),
+                  )),
+              const SizedBox(height: 20),
+              const Spacer(),
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton(
+                  child: const Text(
+                    '跳转',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF000000),
+                    ),
                   ),
-                )),
-          ],
-        ),
-      ),
-      floatingActionButton: ElevatedButton(
-        child: const Text(
-          '跳转',
-          style: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            color: Color(0xFF000000),
+                  onPressed: () {
+                    Get.toNamed(Routes.TEST);
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton(
+                  child: const Text(
+                    'checkForUpdates',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF000000),
+                    ),
+                  ),
+                  onPressed: () {
+                    controller.checkForUpdates();
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+            ],
           ),
         ),
-        onPressed: () {
-          Get.toNamed(Routes.TEST);
-        },
       ),
     );
   }

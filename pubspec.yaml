@@ -1,5 +1,5 @@
 name: test_shorebird
-version: 1.0.3+1
+version: 1.0.4+1
 publish_to: none
 description: A new Flutter project.
 environment: 
@@ -9,6 +9,7 @@ dependencies:
   package_info_plus: 4.2.0
   cupertino_icons: ^1.0.2
   get: 4.6.6
+  shorebird_code_push: ^1.1.3
   flutter: 
     sdk: flutter
 
