@@ -19,15 +19,23 @@ class HomeView extends GetView<HomeController> {
             const Text(
               '版本号需要与patch号相同',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 24,
                 fontWeight: FontWeight.w400,
                 color: Colors.red,
+              ),
+            ),
+            const Text(
+              'iOS 测试',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+                color: Colors.green,
               ),
             ),
             Obx(() => Text(
                   controller.versionInfo.value,
                   style: const TextStyle(
-                    fontSize: 14,
+                    fontSize: 20,
                     fontWeight: FontWeight.w700,
                     color: Colors.orange,
                   ),
