@@ -6,6 +6,7 @@ class HomeController extends GetxController {
   RxString versionInfo = ''.obs;
   RxString curPatchNum = ''.obs;
   RxString updateAvailable = '是否有新的更新：false'.obs;
+  RxString shorebirdStatus = ''.obs;
   final shorebirdCodePush = ShorebirdCodePush();
 
   void _getCurPatch() {
@@ -40,5 +41,7 @@ class HomeController extends GetxController {
     super.onReady();
     _getPackageInfo();
     _getCurPatch();
+    shorebirdStatus.value =
+        'isShorebirdAvailable === ${shorebirdCodePush.isShorebirdAvailable()}';
   }
 }

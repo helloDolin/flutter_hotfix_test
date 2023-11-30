@@ -66,17 +66,28 @@ class HomeView extends GetView<HomeController> {
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
-                      color: Colors.orange,
+                      color: Colors.green,
                     ),
                   )),
               const SizedBox(height: 20),
+
+              Obx(() => Text(
+                    controller.shorebirdStatus.value,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.red,
+                    ),
+                  )),
+              const SizedBox(height: 20),
+
               const Spacer(),
               SizedBox(
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
                   child: const Text(
-                    '跳转',
+                    'jump 2 test page',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
