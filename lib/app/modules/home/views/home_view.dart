@@ -32,6 +32,14 @@ class HomeView extends GetView<HomeController> {
                 color: Colors.green,
               ),
             ),
+            const Text(
+              'test 单独推安卓、iOS \n iOS2',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+                color: Colors.blue,
+              ),
+            ),
             Obx(() => Text(
                   controller.versionInfo.value,
                   style: const TextStyle(
