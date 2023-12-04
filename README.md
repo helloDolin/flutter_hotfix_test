@@ -1,16 +1,54 @@
 # test_shorebird
 
-A new Flutter project.
+测试 shorebird 热更新
+SDK 版本：3.13.9
 
-## Getting Started
+纯 Flutter、混编项目均已测试跑通 👏🏻👏🏻👏🏻
 
-This project is a starting point for a Flutter application.
+体验我这里做了一份总结，具体见 Shorebird体验.pdf
 
-A few resources to get you started if this is your first Flutter project:
+## 官方文档
+https://docs.shorebird.dev/
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 命令记录（纯 Flutter）
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 支持的版本
+shorebird flutter versions list
+
+### 发布
+shorebird release android --artifact=apk
+shorebird release ios-alpha
+
+shorebird release android --artifact apk
+
+### 预览
+shorebird preview
+
+### patch
+shorebird patch android 
+shorebird patch ios-alpha
+
+(修改代码后，版本号不用修改但需要保持一直，直接 patch 即可)
+
+## 命令记录举例（混编）
+
+### iOS
+version：1.0.1
+build:1
+
+shorebird release ios-framework-alpha --release-version 1.0.1+1
+shorebird patch ios-framework-alpha --release-version 1.0.1+1
+
+## Android
+versionName: 1.0.2
+versionCode: 2
+
+shorebird release aar --release-version 1.0.2+2
+shorebird patch aar --release-version 1.0.2+2
+
+设置 aar 产物版本号：
+shorebird release aar --release-version 3.0.3+303 --build-number=3.0.3
+
+原生 Flutter 命令
+flutter build aar --no-debug --no-profile --release --build-number=2.0.2
+
